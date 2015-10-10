@@ -1,0 +1,491 @@
+<!-- 
+Files Needed are jquery and jquery-datatables.min.js 
+https://datatables.net/examples/
+https://datatables.net/search/?cx=004673356914326163298%3Abcgejkcchl4&cof=FORID%3A9&ie=UTF-8&q=checkbox&sa=Search&siteurl=datatables.net%2Fforums%2Fdiscussions%2Fp3&ref=datatables.net%2Fforums%2Fdiscussions%2Fp2&ss=1096j195992j9
+https://datatables.net/forums/discussion/6682/getting-the-checked-check-box-row-values
+-->
+<!-- Markup -->
+<div class="container">    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default"> <!-- PaneL Starting.. -->
+                <div class="panel-heading">
+                    <h3 class="panel-title">Search Recreate:</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="GET" action="" id="providersearch" enctype="multipart/form-data" class="form-horizontal">
+                        <div id="errorMsg" style="display:none;"><p class="error"></p></div>
+                        <div class="form-group">
+                            <label for="recreateContractNumber" class="col-md-6 control-label">Contract No</label>
+                            <div class="col-md-6"><input type="text" class="form-control input-sm" id="recreateContractNumber" placeholder="ContractNumber"></div>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="eobRecreatePlanBenefitPackage" class="col-md-6 control-label">Plan Benefit</label>
+                            <div class="col-md-6"><input type="text" class="form-control input-sm" id="eobRecreatePlanBenefitPackage" placeholder="eobRecreatePlanBenefitPackage"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="eobRecreateMbrNo" class="col-md-6 control-label">Master Group</label>
+                            <div class="col-md-6"><input type="text" class="form-control input-sm" id="eobRecreateMbrNo" placeholder="eobRecreateMbrNo"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="eobRecreateMbrNo" class="col-md-6 control-label">Rpt Prd End Date</label>
+                            <div class="col-md-6"><input type="text" class="form-control input-sm" id="eobRecreateReportingPeriodEndDate" placeholder="eobRecreateReportingPeriodEndDate"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-5"><button type="submit" class="btn btn-default" id="eobRecreateSearchBtn" name="eobRecreateSearchBtn">Search</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- END: Panel --> 
+        </div><!-- col-md-3 -->
+        <div class="col-md-9">
+        <!-- Start Select Recreate Reason Dialog  -->
+
+            <div id="alert-Select-Recreate-Reason" title="Select Recreate Reason"
+                style="display: none">
+                <p>No Re-Create Reason Selected. Please modify and try again.</p>
+            </div>
+            <!-- END Select Recreate Reason Dialog   -->
+
+            <!-- Start Select Recreate Reason dialog-confirm  -->
+
+            <div id="dialog-confirm" title="Select Recreate Reason" style="display: none;"></div>
+
+            <!-- END Select Recreate Reason dialog-confirm  -->
+
+            <!----Conform-----after Submittion-->
+            <div id="PostMessageConformationSucess"></div>
+            <!----EndConform-----after Submittion-->
+
+            <div id ="eobRecreateDetailsContainer" class="table-responsive" style="display:block;">
+            
+            <table id ="eobRecreateResultTab" class="table table-hover display">
+            <caption>Hover Table Layout</caption>    
+            <thead>
+                <tr>
+                    <td>Contract Number</td>
+                    <td>Plan Benefit Package</td>
+                    <td>Master Group Number</td>
+                    <td>Medical Member ID #</td>
+                    <td>Reporting Period End Date</td>
+                    <td colspan="3">Select / Unselect<input type="checkbox" name="cbox" id="selectall1"/></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+
+            </div>
+        </div><!-- END: Col-md-9 -->
+        <div id="tablejson" style="display:none;"></div>
+    </div><!-- Row Ends here -->
+    <!-- BUTON STARTS HERE-->
+    <div id="button_row" class="form_row" style="float:right;padding:7px 7px 7px 0px;">
+    <div class="form_leftcol">
+        <input type="button"  value="Check Me" onclick="postMethodss()"/>
+        <input class="form_button_submit ui-button ui-widget ui-state-default ui-corner-all" type="button" id="addNewButton" value="Submit Re-Create Request" onclick="SubmitRecreateRequest()" />
+    </div>
+    </div>
+    <!-- Alert Box SubmitRecreateRequest  -->
+    <div id="alert-check-Recreate-EOB" title="Recreate EOB"
+        style="display: none">
+        <p>You did not select Subscribers to recreate. Please select and
+            try again.</p>
+    </div>
+
+
+    <!-- start RecreateReason  select Options POPUP ------------------- -->
+    <div id="dialog" title="Submit EOB Request">
+        <form method="GET" action="" id="RecreateReason" name="RecreateReason">
+            <input type="hidden" name="SelectedValues" id="SelectedValues" />
+            <div class="form_row">
+                <div class="form_leftcol">
+                    <div class="form_leftcollabel">
+                        <label for="provider_type"> Recreate Reason </label>
+                    </div>
+                </div>
+                <div class="form_rightcol_new">
+                    <div id="providerType_0_wrapper" class="form_rightcol_wrapper">
+                        <select id="DropdownRecreateReasons">
+                            <option value="">Select Reason</option>
+                            <option value="Branding Data Error">Branding Data Error</option>
+                            <option value="CH Traditional Accumulator Data Error">CH
+                                Traditional Accumulator Data Error</option>
+                            <option value="COSMOS Eligibility Data Error">COSMOS
+                                Eligibility Data Error</option>
+                            <option value="GPS Eligibility Data Error">GPS
+                                Eligibility Data Error</option>
+                            <option value="MAPS Group Plan Data Error">MAPS Group
+                                Plan Data Error</option>
+                            <option value="Messaging Data Error">Messaging Data Error
+                            </option>
+                            <option value="NDB Provider Name Data Error">NDB Provider
+                                Name Data Error</option>
+
+                            <option value="Remark Code Error">Remark Code Error</option>
+                            <option value="Reporting Accumulator Error">Reporting
+                                Accumulator Error</option>
+                            <option value=" Service Code Error">Service Code Error</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="button_row" class="form_row">
+                <div class="text-center">
+                    <input
+                        class="form_button_submit ui-button ui-widget ui-state-default ui-corner-all  center-block text-center"
+                        type="button" id="Submit-Eob-Request" value="Submit Eob Request"
+                        onclick="PostRecreateReason()" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- BUTTONS ENDS.. -->
+    <!-- Details row Starts here -->
+    <div class="row">
+        <div class="col-md-12">
+            <div id ="eob-recreate-details" class="table-responsive">
+            <table id ="eobRecreateDetailsTab" class="table table-hover display">
+            <caption>Hover Table Layout</caption>    
+            <thead>
+                <tr>
+                    <td>Subscriber Release Id</td>
+                    <td>Subscriber Name</td>
+                    <td>Member Medical #</td>
+                    <td>Member Medical Source System</td>
+                    <td>Master Group Number</td>
+                    <td>Group Number</td>
+                    <td>Division Site</td>
+                    <td>Contract Number</td>
+                    <td>Plan Benifit Package</td>
+                    <td>Plan Contract Year</td>
+                    <td>Reporting End Date</td>
+                    <td>EOB Release Date</td>
+                    <td>Eligibility Source</td>
+                    <td>Subscriber DOB</td>
+                    <td>Has Claim Indicator</td>
+                    <td>Recreate Indicator</td>
+                    <td>Subscriber Hold</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>    
+            </div>
+        </div>
+        
+    </div>    <!--  END: Details Row Ends here -->
+    
+</div> <!-- Container.. -->
+
+<!-- Below js is specific to this page, So included in the page.. -->
+
+<script type="text/javascript">
+    var eobRecreateSearch = {
+        search:function(){
+             var requestJSON = {
+                "contractNbr": jQuery('#eobRecreateContractNumber').val(),
+                "planBenefitPackage": jQuery('#eobRecreatePlanBenefitPackage').val(),
+                "masterGroupNumber": jQuery('#eobRecreateMbrNo').val(),
+                "memberMedicalId": jQuery('#eobRecreateMbrId').val(),
+                "memberMedicalIdList":["5555665","33333"],
+                "reportingPeriodEndDate": jQuery('#eobRecreateReportingPeriodEndDate').val()
+            };
+
+            jQuery.blockUI.defaults.overlayCSS.backgroundColor = '#C0C0C0';
+            //jQuery('#eobRecreateResultContainer').block({ message: '<h1><img src="/etc/designs/spp-optum-design/spp-core-clientlibs/images/ajax-loader.gif" /> Loading...</h1>' });
+            jQuery.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                //url: "/etc/designs/spp-optum-design/spp-core-clientlibs/mock-data/eob-recreate.json",
+                url:"client-apps/dinesh/eob-recreate.json",
+                cache: false,
+                dataType: "json"
+                //headers: { "Accept-Encoding" : "gzip" }
+                //data: JSON.stringify({eobRecreateVO:requestJSON})
+            })
+            .done(function(data,textStatus,jqXHR) {
+                if(jqXHR.status == 204) {
+                    jQuery('#eobRecreateSearchErrorMsg').text("No records were found that match your search criteria.  Please modify your search criteria and try again.").show();
+                }    
+                else if(jqXHR.status == 200) { 
+                    var subsCount = data["eobRecreateResponse"].subscriberCount;
+                    jQuery('#errorMsg').hide();
+                    jQuery('#tablejson').text(JSON.stringify(data));
+                    var responseJSON = data["eobRecreateResponse"].recreateVOList;
+                    eobRecreateSearch.displayResults(responseJSON);
+                    //var myobj =  JSON.parse(jQuery("#tablejson").text());
+                    //eobRecreateSearch.displayResults(myobj.eobRecreateResponse.recreateVOList);
+                }
+            })
+            .fail(function( jqXHR, textStatus, errorThrown ) {
+            })
+            .always(function() {
+                //jQuery('#eobRecreateResultContainer').unblock();
+            });
+        },   // end: search
+        displayResults:function(data){
+            jQuery('#eobRecreateResultTab').dataTable().fnClearTable();
+            var isArray = Object.prototype.toString.call(data) === '[object Array]';
+            if(!isArray){
+                data = [data];
+            }
+            jQuery('#eobRecreateDetailsContainer').show();
+            jQuery('#eobRecreateResultTab').dataTable().fnAddData(data);
+        }
+    };
+    //Defining the EOB Results Data Table
+    $("#eobRecreateResultTab").dataTable({
+        "bJQueryUI": true,
+        "bProcessing": true,
+        "bSortable": false,
+        "scrollX": true,
+        "scrollY": "300px",
+        "bAutoWidth": false,
+        "bPaginate": false,
+        "bFilter": false,
+        "bDestroy": true,
+        "bInfo": false,
+        "aoColumns": [
+            {"mData": "contractNbr",className: "dt-body-center"}, 
+            {"mData": "planBenefitPackage",className: "dt-body-center"}, 
+            {"mData": "masterGroupNumber",className: "dt-body-center"}, 
+            {"mData": "memberMedicalId",className: "dt-body-center"}, 
+            {"mData": "reportingPeriodEndDate",className: "dt-body-center"},
+            {"mData": null,
+                "render": function(
+                    data, type,
+                    row, meta) {
+                    if (type === 'display') {
+                        return '<input type="checkbox" class="editor-active">';
+                    }
+                    return "";
+                },
+                className: "dt-body-center",
+                "targets": 0,
+                "orderable": false
+            },
+            {"mData": "sbscrReleaseId","visible": true}, 
+            {"mData": "memberMedicalSourceSystem","visible": true}
+        ],
+        rowCallback: function(row, data) {
+            // Set the checked state of the checkbox in the table
+            //$('input.editor-active', row).prop('disabled',
+            //data.memberMedicalId !== "" && data.contractNbr == "" && data.planBenefitPackage == "" && data.masterGroupNumber == "" && data.reportingPeriodEndDate == "");
+            if(  data.masterGroupNumber == 22  ){
+               $('input.editor-active', row).attr("disabled","disabled"); 
+            }
+        }
+    });
+
+    //check box result
+    jQuery('#selectall1').change(function() {
+        if (jQuery(this).is(':checked')) {
+            $('#eobRecreateResultTab').find('tr').each(function() {
+                var row = $(this);
+                if (!row.find('input[type="checkbox"]').is(':disabled')) {
+                    row.find('input[type="checkbox"]').prop('checked',true);
+                } else {
+                    row.find('input[type="checkbox"]').prop('checked',false);
+                }
+            });
+        } else {
+            jQuery(".editor-active").prop('checked', false);
+        }
+    });
+
+    //Action need to perform when a row in results table selected.
+    jQuery('#eobRecreateResultTab tbody').on('click','tr td:not(:nth-of-type(6))',function() {
+        if (jQuery(this).hasClass('selected')) {
+            jQuery(this).removeClass('selected');
+        } else {
+            jQuery('tr.selected').removeClass('selected');
+            jQuery(this).addClass('selected');
+            jQuery('#eobRecreateDetailsContainer').slideDown("slow");
+            var tr = jQuery(this).closest('tr');
+            var selRow = $('#eobRecreateResultTab').DataTable().row(tr).data();
+            eobRecreateDetails.renderResults(selRow);
+        }
+    });
+
+//alert-check box SubmitRecreateRequest Button 
+function SubmitRecreateRequest() {
+    var flag = true;
+    if ((jQuery("input.editor-active:checked").length == false) || (jQuery("input.editor-active:checked").length < 1)) {
+        flag = false;
+        $("#alert-check-Recreate-EOB").dialog({buttons: {
+            Ok: function() {
+                $(this).dialog("close");
+            }
+        }
+        });
+        return false;
+    }
+    if (flag) {
+        $("#dialog").dialog("open");
+    }
+}
+
+//dialog RecreateReason  select Options POPUP
+    $("#dialog").dialog({
+        autoOpen: false,
+        show: {
+            effect: "blind",
+            duration: 10
+        },
+        hide: {
+            effect: "explode",
+            duration: 10
+        },
+        width: "40%"
+    });
+    var now = new Date();
+    var first_day = new Date(now.getFullYear(), now.getMonth(), 1);
+    var last_day = new Date(now.getFullYear(), now.getMonth(), 0);
+    var lastDate = first_day.getMonth() + '/' + last_day.getDate() + '/' + last_day.getFullYear();
+    $('#eobRecreateReportingPeriodEndDate').val(lastDate);
+
+    $("#eobRecreateSearchBtn").click(function() {
+        $('#eobRecreateDetailsContainer').slideUp("slow");
+        eobRecreateSearch.search();
+    });
+
+//"SubmitRecreateRequest Button "
+function SubmitRecreateRequest() {
+    var flag = true;
+    if ((jQuery("input.editor-active:checked").length == false) || (jQuery("input.editor-active:checked").length < 1)) {
+        flag = false;
+        $("#alert-check-Recreate-EOB").dialog({
+            buttons: {
+                Ok: function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        return false;
+    }
+    if (flag) {
+        $("#dialog").dialog("open");
+    }
+}
+
+///"PostRecreateReason in the dropdown"
+function PostRecreateReason(argument) {
+    var flag = true;
+    if ((jQuery("#DropdownRecreateReasons").val() == "")) {
+        flag = false;
+        $("#alert-Select-Recreate-Reason").dialog({
+            buttons: {
+                Ok: function() {
+                    $(this).dialog("close");
+                }
+            }
+        });
+        return false;
+    }
+    if (flag) {
+        $("#dialog-confirm").dialog({title: "Request Recreate Submit",
+            resizable: false,
+            height: 160,
+            modal: true,
+            buttons:{
+            "YES": function() {
+                $(this).dialog("close");
+                $('#dialog').dialog("close");
+                var oTable = jQuery('#eobRecreateResultTab').dataTable();
+                var reqSerArr = [];
+                $("input:checked", oTable.fnGetNodes()).each(function(i) {
+                    var tds = jQuery(this).parent().parent().children('td');
+                    //var oj = "{\"sbscrReleaseId\":" + tds.eq(6).text() + ",\"memberMedicalId\":" + tds.eq(3).text() + ",\"medicalSourceSystem\":" + tds.eq(7).text() + "}";
+                    var oj = {"subscriberReleaseId": tds.eq(6).text(),
+                        "memberMedicalId": tds.eq(3).text(),
+                        "medicalSourceSystem": tds.eq(7).text()
+                    };
+                    reqSerArr.push(oj);
+                });
+                var recrequest = {
+                    "eobRecreateRequest": {
+                    "recreateReason": jQuery("#DropdownRecreateReasons").val(),
+                    "userFirstName":  "abc",   //firstName,
+                    "userLastName":  "def",    //lastName,
+                    "recreateEOBRequest": reqSerArr
+                    }
+                };
+                //ajaxRequest,ajaxRequest.done,ajaxRequest.done function...
+                var ajaxRequest = $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "/spp-hapi/service/eob-recreate/submit-request/v1",
+                    cache: false,
+                    dataType: "json",
+                    headers: {
+                        "Accept-Encoding": "gzip"
+                    },
+                    data: JSON.stringify(recrequest)
+                });
+
+                ajaxRequest.done(function(msg) {
+                    $("#PostMessageConformationSucess").dialog({
+                        title: "Success",
+                        buttons: {
+                            Ok: function() {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
+                    $("#PostMessageConformationSucess").html("Recreate Request Batch " + msg.eobSubmitRecreateResponse.recreateRequestId + " Successfully Submitted in PENDING Status");
+                });
+
+                ajaxRequest.fail(function(jqXHR,textStatus) {
+                    $("#PostMessageConformationSucess").dialog({
+                        title: "Failed",
+                        buttons: {
+                            Ok: function() {
+                            $(this).dialog("close");
+                            }
+                        }
+                    });
+                    var res = jQuery.parseJSON(jqXHR.responseText);
+                    $("#PostMessageConformationSucess").html(res['error-messages'].message.desc);
+                });
+
+                },
+            "NO": function() {$(this).dialog("close");}
+            }  // end buttons
+        });
+        $("#dialog-confirm").html("Are you sure you want to continue? If you continue, your changes will not be able to be undone");
+    }
+}  // END: PostRecreateReason
+
+var eobRecreateDetails = {
+    renderResults:function(data){
+        jQuery('#eobRecreateDetailsTab').dataTable().fnClearTable();
+        var isArray = Object.prototype.toString.call(data) === '[object Array]';
+        if(!isArray){
+            data = [data];
+        }
+        jQuery('#eobRecreateDetailsTab').dataTable().fnAddData(data);
+    }
+};   
+
+// ##### TRIGGER CLICK #####
+jQuery(document).ready(function() {    
+    var now = new Date();
+    var first_day = new Date(now.getFullYear(), now.getMonth(), 1);
+    var last_day = new Date(now.getFullYear(), now.getMonth(), 0);
+    var lastDate = first_day.getMonth() + '/' + last_day.getDate() + '/' +  last_day.getFullYear();
+    jQuery('#eobRecreateReportingPeriodEndDate').val(lastDate);
+    
+    jQuery("#eobRecreateSearchBtn").click(function(){
+        //jQuery('#eobRecreateDetailsContainer').slideUp("slow");
+        eobRecreateSearch.search();
+    });
+});
+</script>
+
+
+
+

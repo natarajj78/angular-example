@@ -1,0 +1,146 @@
+<style type="text/css">
+.html-img{width:700px; height:300px;}
+li a:hover{color:black;}
+.html-img-width{width:700px;}
+
+</style>
+<div class="container">
+<h1>Http Basics</h1>
+    <div class="row">
+    <!-- Accordian  -->	
+    <div class="panel-group" id="accordion">
+	  	<div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-parent="#accordion" 
+	          href="/Projects_Personal/angular-mocks/#/http-basics#httpoverview">
+	          1.Http Overview
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="httpoverview" class="panel-collapse collapse in">
+	    <div class="panel-body">
+			<div>
+			<div class="col-md-3">
+				<ul class="list-group affix" data-spy="affix" >
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#webclient-server">Webclients and WebServers</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#resources">Resources( Web Content )</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#mediatypes">Media Types</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#transactions">Transactions</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#methods">Methods</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#statuscodes">Status Codes</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#messages">Mesages</a></li>
+					<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#connections">Connections</a></li>
+					<!--<li class="list-group-item"><a href="">Proxies,Caches,Gateways,Tunnels,Agents</li>-->
+				</ul>
+			</div><!--  END: Col-md-3-->
+			  <div class="col-md-9">
+			     <h2 id="webclients">Web Applications</h2>
+				 <img src="source_images/html/img/overview-http.png" class="html-img">	
+				 <hr>
+				 <h2 id="webclient-server">Web Clients and Servers</h2>
+				 <p>Web content lives on web servers. Web servers speak the HTTP protocol, so they are often called HTTP servers. These HTTP servers store the Internet’s data and provide the data when it is requested by HTTP clients. The clients send HTTP requests to servers, and servers return the requested data in HTTP responses, as sketched in</p>
+				 <p>HTTP clients and HTTP servers make up the basic compo- nents of the World Wide Web.</p>
+				 <hr>
+				 <h2 id="resources">Resources</h2>
+				 <p>Web servers host web resources. A web resource is the source of web content. The simplest kind of web resource is a static file on the web server’s filesystem. These files can contain anything: they might be text files, HTML files, Microsoft Word files, Adobe Acrobat files, JPEG image files, AVI movie files, or any other format you can think of.</p>
+				 <img src="source_images/html/img/resources.png" class="html-img">	
+				 <hr>
+				 <h2 id="mediatypes">MediaTypes</h2>
+				 <p>Internet hosts many thousands of different data types, HTTP carefully tags each object being transported through the Web with a data format label called a MIME type. MIME (Multipurpose Internet Mail Extensions) was originally designed to solve problems encountered in moving messages between different electronic mail systems</p>
+				 <img src="source_images/html/img/mimetype.png" class="html-img">	
+				 <hr>
+			     <h2 id="transactions">Transactions</h2>
+				 <p>An HTTP transaction consists of a request command (sent from cli- ent to server), and a response result (sent from the server back to the client). This communication happens with formatted blocks of data called HTTP messages</p>
+				 <img src="source_images/html/img/transactions.png" class="html-img">	
+				 <hr>
+				 <h2 id="methods">Methods</h2>
+				 <p>HTTP supports several different request commands, called HTTP methods. Every HTTP request message has a method. The method tells the server what action to per- form (fetch a web page, run a gateway program, delete a file, etc.)</p>
+				 <img src="source_images/html/img/methods.png" class="html-img">	
+				 <hr>
+				 <h2 id="statuscodes">StatusCodes</h2>
+				 <p>Every HTTP response message comes back with a status code. The status code is a three-digit numeric code that tells the client if the request succeeded, or if other actions are required. </p>
+				 <img src="source_images/html/img/statuscodes.png" class="html-img">	
+				 <hr>
+				 <h2 id="messages">Messages</h2>
+				 <p>HTTP messages are the packages it uses to move things around.</p>
+				 <img src="source_images/html/img/messages.png" class="html-img">	
+				 <hr>
+				 <h2 id="connections">Connections, IP Addresses, and Port Numbers</h2>
+				 <p>Before an HTTP client can send a message to a server, it needs to establish a TCP/IP connection between the client and server using Internet protocol (IP) addresses and port numbers.</p>
+				 <img src="source_images/html/img/connections.png" class="html-img">	
+				 <h4>Baisc Browser connection process</h4>
+				 <img src="source_images/html/img/connections1.png" class="html-img">	
+				 <hr>
+			  </div> <!--  END: Col-md-9-->
+			</div> <!-- END :DIV -->
+		</div>
+	    </div>
+	  	</div>  <!--END: Panel1 :  -->
+
+		<div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+		    <a data-toggle="collapse" data-parent="#accordion" 
+		      href="/Projects_Personal/angular-mocks/#/http-basics#urls">
+		      2.URLs  and Resources
+		    </a>
+		  </h4>
+		</div>
+		<div id="urls" class="panel-collapse collapse">
+		  <div class="panel-body">
+			<div>
+			<div class="col-md-3">
+				<ul class="list-group">
+				<li class="list-group-item"><a href="/Projects_Personal/angular-mocks/#/http-basics#url-syntax">Url Syntax and various components</a></li>
+				<li class="list-group-item"><a href="">Relatie Urls / Absolute Urls</li>
+				<li class="list-group-item"><a href="">Common URL schemes</li>
+				</ul>
+			  </div>
+			  <div class="col-md-9">
+			     <h2 id="url-syntax">Url Syntax</h2>
+			     <img src="source_images/html/img/url-syntax.png" class="html-img-width">		
+			     <img src="source_images/html/img/url-syntax1.png" class="html-img-width">			
+			     <hr>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		</div> <!--END: Panel2:  -->
+
+		<div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+		    <a data-toggle="collapse" data-parent="#accordion" 
+		      href="/Projects_Personal/angular-mocks/#/http-basics#affix-messages">
+		      3.Http Messages
+		    </a>
+		  </h4>
+		</div>
+		<div id="affix-messages" class="panel-collapse collapse">
+		  <div class="panel-body">
+messages..
+		  </div>
+		</div>
+		</div> <!-- END: Panel3 -->
+
+		<div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+		    <a data-toggle="collapse" data-parent="#accordion" 
+		      href="/Projects_Personal/angular-mocks/#/http-basics#affix-connections">
+		      4.Connections
+		    </a>
+		  </h4>
+		</div>
+		<div id="affix-connections" class="panel-collapse collapse">
+		  <div class="panel-body">
+Connections..
+		  </div>
+		</div>
+		</div> <!-- END: Panel4 -->
+
+
+	</div><!-- END: Accordion -->
+	</div>
+</div>    

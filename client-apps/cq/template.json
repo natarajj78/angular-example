@@ -1,0 +1,333 @@
+{
+  "templates": [
+    {
+      "title": "Form Template",
+      "ranking": null,
+      "description": "Allows to create custom plain forms for editing resources.",
+      "path": "/libs/collab/commons/templates/form",
+      "thumbnailPath": "/libs/collab/commons/templates/form/thumbnail.png"
+    },
+    {
+      "title": "Blog",
+      "ranking": null,
+      "description": "Create a blog page.",
+      "path": "/libs/collab/blog/templates/page",
+      "thumbnailPath": "/libs/collab/blog/templates/page/thumbnail.png"
+    },
+    {
+      "title": "1 column template",
+      "ranking": 10,
+      "description": "Masterbrand default template",
+      "path": "/apps/cdc/framework/templates/default/one_column",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/one_column/thumbnail.png"
+    },
+    {
+      "title": "Series Home - Support",
+      "ranking": 3,
+      "description": "Masterbrand series template",
+      "path": "/apps/cdc/framework/templates/default/series_support",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/series_support/thumbnail.png"
+    },
+    {
+      "title": "Series Home - Products",
+      "ranking": 3,
+      "description": "Masterbrand series template",
+      "path": "/apps/cdc/framework/templates/default/series_products",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/series_products/thumbnail.png"
+    },
+    {
+      "title": "external_link",
+      "ranking": 10,
+      "description": "Page Used For Redirects to external sites",
+      "path": "/apps/cdc/framework/templates/default/external_link",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/external_link/thumbnail.png"
+    },
+    {
+      "title": "Hubs 1-Col",
+      "ranking": 2,
+      "description": "Hubs 1-Col",
+      "path": "/apps/cdc/framework/templates/default/hubs_1col"
+    },
+    {
+      "title": "High Level Listing",
+      "ranking": 5,
+      "description": "Masterbrand high level listing template",
+      "path": "/apps/cdc/framework/templates/default/hll",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/hll/thumbnail.png"
+    },
+    {
+      "title": "3 column template",
+      "ranking": 12,
+      "description": "Masterbrand default template",
+      "path": "/apps/cdc/framework/templates/default/three_column",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/three_column/thumbnail.png"
+    },
+    {
+      "title": "seriestemplate",
+      "ranking": 100,
+      "description": "Series Template",
+      "path": "/apps/cdc/templates/seriestemplate"
+    },
+    {
+      "title": "llltemplate",
+      "ranking": 100,
+      "description": "LLL Template",
+      "path": "/apps/cdc/templates/llltemplate"
+    },
+    {
+      "title": "lllcombinationtemplate",
+      "ranking": 100,
+      "description": "lllcombinationtemplate",
+      "path": "/apps/cdc/templates/lllcombinationtemplate"
+    },
+    {
+      "title": "conceptWithShortDescTemplate",
+      "ranking": 100,
+      "description": "",
+      "path": "/apps/cdc/templates/conceptwithshortdesctemplate"
+    },
+    {
+      "title": "contextconcepttemplate",
+      "ranking": 100,
+      "description": "contextconcepttemplate",
+      "path": "/apps/cdc/templates/contextconcepttemplate"
+    },
+    {
+      "title": "Responsive Home Page",
+      "ranking": 0,
+      "description": "responsive home page template",
+      "path": "/apps/cdc/homepage/templates/responsive_homepage",
+      "thumbnailPath": "/apps/cdc/homepage/templates/responsive_homepage/thumbnail.png"
+    },
+    {
+      "title": "visiostencilslisting",
+      "ranking": 100,
+      "description": "visiostencilslisting",
+      "path": "/apps/cdc/templates/visiostencilslisting"
+    },
+    {
+      "title": "EOT Page Template",
+      "ranking": 13,
+      "description": "EOTpage",
+      "path": "/apps/cdc/wcm/templates/eotpage"
+    },
+    {
+      "title": "Book Chapter Page Template",
+      "ranking": 13,
+      "description": "bookchapterpage",
+      "path": "/apps/cdc/wcm/templates/bookchapterpage"
+    },
+    {
+      "title": "E2ETest Cached Content Page",
+      "ranking": 90,
+      "description": "Template for cache page",
+      "path": "/apps/E2ETestApp/templates/cachepage"
+    },
+    {
+      "title": "Responsive: Support Model",
+      "ranking": 4,
+      "description": "Responsive Support Model (for HMP content)",
+      "path": "/apps/cdc/responsive/templates/responsive_support_model"
+    },
+    {
+      "title": "Blank Page Template",
+      "ranking": 13,
+      "description": "Template for No Content Pages (folders)",
+      "path": "/apps/cdc/wcm/templates/blank"
+    },
+    {
+      "title": "Low Level Listing",
+      "ranking": 6,
+      "description": "Masterbrand Low Level Listing template",
+      "path": "/apps/cdc/framework/templates/default/lll",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/lll/thumbnail.png"
+    },
+    {
+      "title": "2 column template",
+      "ranking": 11,
+      "description": "Masterbrand default template",
+      "path": "/apps/cdc/framework/templates/default/two_column",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/two_column/thumbnail.png"
+    },
+    {
+      "title": "End of tree template",
+      "ranking": 7,
+      "description": "Masterbrand End of Tree template",
+      "path": "/apps/cdc/framework/templates/default/eot",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/eot/thumbnail.png"
+    },
+    {
+      "title": "Category Home 2-Col",
+      "ranking": 2,
+      "description": "Category Node 2-Col",
+      "path": "/apps/cdc/framework/templates/default/cat_node_2col",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/cat_node_2col/thumbnail.png"
+    },
+    {
+      "title": "Model Listing",
+      "ranking": 5,
+      "description": "Masterbrand high level listing template",
+      "path": "/apps/cdc/framework/templates/default/model_listing",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/model_listing/thumbnail.png"
+    },
+    {
+      "title": "Category Home 1-Col",
+      "ranking": 2,
+      "description": "Category Node 1-Col",
+      "path": "/apps/cdc/framework/templates/default/cat_node_1col",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/cat_node_1col/thumbnail.png"
+    },
+    {
+      "title": "Model Home",
+      "ranking": 4,
+      "description": "Masterbrand series template",
+      "path": "/apps/cdc/framework/templates/default/model",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/model/thumbnail.png"
+    },
+    {
+      "title": "Hubs 2-Col",
+      "ranking": 2,
+      "description": "Hubs 2-Col",
+      "path": "/apps/cdc/framework/templates/default/hubs_2col"
+    },
+    {
+      "title": "Framework test template",
+      "ranking": 20,
+      "description": "Framework testing template",
+      "path": "/apps/cdc/framework/templates/default/test"
+    },
+    {
+      "title": "Support Model Title",
+      "ranking": 4,
+      "description": "Responsive Support Model Template",
+      "path": "/apps/cdc/framework/templates/responsive/support_model",
+      "thumbnailPath": "/apps/cdc/framework/templates/responsive/support_model/thumbnail.png"
+    },
+    {
+      "title": "ratings_and_comments",
+      "ranking": 10,
+      "description": "Paged used to rate docs and external sites",
+      "path": "/apps/cdc/framework/templates/default/ratings_and_comments",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/ratings_and_comments/thumbnail.png"
+    },
+    {
+      "title": "Site Area Root",
+      "ranking": 1,
+      "description": "Masterbrand site area root template",
+      "path": "/apps/cdc/framework/templates/default/site_area_root",
+      "thumbnailPath": "/apps/cdc/framework/templates/default/site_area_root/thumbnail.png"
+    },
+    {
+      "title": "E2ETest NoCache Content Page",
+      "ranking": 90,
+      "description": "Template for nocache page",
+      "path": "/apps/E2ETestApp/templates/nocachepage"
+    },
+    {
+      "title": "Marketing 1 column template",
+      "ranking": 10,
+      "description": "Masterbrand default template for Marketing",
+      "path": "/apps/cdc/dm/templates/mktg_one_column",
+      "thumbnailPath": "/apps/cdc/dm/templates/mktg_one_column/thumbnail.png"
+    },
+    {
+      "title": "Marketing 2 column template",
+      "ranking": 11,
+      "description": "Masterbrand default template for Marketing",
+      "path": "/apps/cdc/dm/templates/mktg_two_column",
+      "thumbnailPath": "/apps/cdc/dm/templates/mktg_two_column/thumbnail.png"
+    },
+    {
+      "title": "eolmodellisting",
+      "ranking": 100,
+      "description": "eolmodellisting",
+      "path": "/apps/cdc/templates/eolmodellisting"
+    },
+    {
+      "title": "model listing",
+      "ranking": 100,
+      "description": "model listing",
+      "path": "/apps/cdc/templates/model listing"
+    },
+    {
+      "title": "hllcombinationtemplate",
+      "ranking": 100,
+      "description": "hllcombinationtemplate",
+      "path": "/apps/cdc/templates/hllcombinationtemplate"
+    },
+    {
+      "title": "A-Z products listing",
+      "ranking": 100,
+      "description": "A-Z products listing",
+      "path": "/apps/cdc/templates/A-Z products listing"
+    },
+    {
+      "title": "EolTemplate",
+      "ranking": 100,
+      "description": "EolTemplate",
+      "path": "/apps/cdc/templates/EolTemplate"
+    },
+    {
+      "title": "Rendering Page Template",
+      "ranking": 100,
+      "description": "Rendering Page Template",
+      "path": "/apps/cdc/rendering/templates/rendering"
+    },
+    {
+      "title": "hlltemplate",
+      "ranking": 100,
+      "description": "HLL Template",
+      "path": "/apps/cdc/templates/hlltemplate"
+    },
+    {
+      "title": "Book Chapter Page Template",
+      "ranking": 100,
+      "description": "Book Chapter Page Template",
+      "path": "/apps/cdc/books/templates/book"
+    },
+    {
+      "title": "Responsive: CTC Model 2",
+      "ranking": 4,
+      "description": "Responsive CTC Model 2 (for HMP content)",
+      "path": "/apps/cdc/responsive/templates/supportSolutionRelease"
+    },
+    {
+      "title": "Responsive: CTC Model 2",
+      "ranking": 4,
+      "description": "Responsive CTC Model 2 (for HMP content)",
+      "path": "/apps/cdc/responsive/templates/supportSolutionFamily"
+    },
+    {
+      "title": "Responsive: Generic Framework",
+      "ranking": 4,
+      "description": "Responsive Generic Framework with no contents",
+      "path": "/apps/cdc/responsive/templates/generic"
+    },
+    {
+      "title": "Satellite Template",
+      "ranking": 4,
+      "description": "Responsive version of the Satellite Template.",
+      "path": "/apps/cdc/responsive/templates/satellite"
+    },
+    {
+      "title": "Responsive: Developer Kit Template",
+      "ranking": 4,
+      "description": "Responsive Generic Template with Developer Kit comment tags.",
+      "path": "/apps/cdc/responsive/templates/developerKit"
+    },
+    {
+      "title": "Support Model Title1",
+      "ranking": 4,
+      "description": "Responsive Support Model Template",
+      "path": "/apps/cdc/responsive/templates/support_model",
+      "thumbnailPath": "/apps/cdc/responsive/templates/support_model/thumbnail.png"
+    },
+    {
+      "title": "Responsive: End of tree template",
+      "ranking": 4,
+      "description": "Responsive template for new and upgraded End of tree pages",
+      "path": "/apps/cdc/responsive/templates/eot"
+    }
+  ],
+  "results": 51
+}

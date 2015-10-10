@@ -1,0 +1,136 @@
+h1{font-size:19px; color:#e87722;}
+.imglibbackbtn{
+    background: #ffffff url("../images/7C.png") no-repeat left center;
+    width:26px;
+    height:22px;
+}
+span.header_txt{padding-left:10px;}
+.addimages{
+    background: url('../images/addImgBack.png') no-repeat;
+    width:298px; height:298px;    
+    margin:0 auto;    
+}
+.inputfile_3a{
+    width:185px;
+    display:inline;
+    top:-100px;
+    opacity:0;
+    position:relative;
+    margin:17px 20px 9px -164px;
+    border:1px solid red;
+}
+.inputfile_3b {
+    width:100px;
+    display:inline;
+    top: 24px;
+    left:103px;
+    postion:relative;
+    margin: 0 10px -22px 10px;
+    opacity:0;
+}
+.btn_round{
+    border-radius:48px;
+    padding:5px 10px;
+} 
+.btn-round{
+    width:325px;
+    height:43px;
+    border-radius:48px;
+    position:relative;
+}
+.btn_pubtxt{
+    margin:11px 0 10px 20px;
+    font-size:20px;
+}
+.img-gal{
+    width:180px;
+}
+
+/** OVer Lay **/
+div#overlay{ width:100%; height:100%; background: #ccc; position:fixed; z-index:1; display:none;}
+div#successBox { display: none; position: relative; z-index: 2;}
+
+/** Modal Styles  -- Could be for Succss, Error,  **/
+.errorBox, .warningBox, .successBox, .alertBox{ border-radius: 2px;}    
+.errorBox .modal-dialog, .warningBox .modal-dialog, .successBox .modal-dialog{width:560px;}    
+.errorBox .header, .warningBox .header, .successBox .header, .alertBox .header{
+    height:49px;
+    background: #ffffff; border-radius: 2px 2px 0px 0px; box-shadow: 0px 1px 0px rgba (0,0,0, 0.5); margin-bottom: 15px; 
+    font-family: Frutiger LT 45; font-size: 22px; text-align: left; color: #63666a;
+}
+.errorBox button.close, .warningBox button.close, .successBox button.close, .alertBox button.close{margin:-13px 19px 0 3px; font-size:42px;}
+.errorBox .modalText, .warningBox .modalText, .successBox .modalText, .alertBox .modalText{ font-family: Frutiger LT 45; font-size: 19px; color: #fff;}
+.errorBox   .header {color:#e74c3c;}
+.warningBox .header {color:#e74c3c; }
+.successBox .header {color:#e74c3c;}
+.alertBox   .header {color:#e74c3c; }
+.errorBox .modal-body, .warningBox .modal-body, .successBox .modal-body, .alertBox .modal-body{font-family: Helvetica Neue Regular; font-size: 16px;  color: #e87722;}
+
+.errorBox .modal-body{  background: #e74c3c; color:#fff;}
+.warningBox .modal-body{  background: #e74c3c;}
+.successBox .modal-body{ background: #e74c3c}
+.alertBox .modal-body{ background: #d0d0ce; color:#63666A;}
+
+.errorBox .button, .warningBox .button, .successBox .button, .alertBox .button {height: 38px; border: 1px solid #fff;  border-radius: 2px; font-family: Frutiger 55 Roman; font-size: 15px; color: #ffffff; text-align: center; background: #e74c3c; width:97%;}
+
+.opt_btn{
+    height: 38px;
+    font-family: Helvetica Neue Regular; font-size: 13px;
+    color: #ffffff;
+    text-align: center; border-radius: 0;
+    min-width: 150px;
+}
+
+
+
+/* Media Queries for the Image Gallery  */ 
+@media screen and ( min-width: 320px ) {
+    .addimages{
+        width:180px; height:180px;    
+        background-size:180px 180px;
+    }
+    .btn-round{width:200px; top:21px; left:-10px;}
+    .btn_pubtxt{font-size:14px;}
+    span.header_txt{display:block; text-align:center; margin:-20px 0 10px;}
+    .optium-text-center{text-align:center;}
+    .img-gal{width:88px;}
+}
+@media screen and ( min-width: 375px ) {
+    .img-gal{width:100px;}
+}
+@media screen and ( min-width: 384px ) {
+    .img-gal{width:109px;}
+}
+@media screen and ( min-width: 500px ) {
+    .addimages{
+        width:200px; height:200px;    
+        background-size:200px 200px;
+    } 
+    .btn-round{width:220px; left:-10px;}
+    .btn_pubtxt{font-size:18px;}
+    span.header_txt{display:inline; margin:0;}
+    .optium-text-center{text-align:left;}
+    .img-gal{width:90px;}
+}
+@media screen and ( min-width: 568px ) {
+    .img-gal{width:83px;}
+}
+@media screen and ( min-width: 667px ) {
+    .img-gal{width:98px;}
+}
+@media screen and ( min-width: 768px ) {
+    .img-gal{width:116px;}
+}
+@media screen and ( min-width:800px ) {
+    .addimages{
+        width:300px; height:300px;   
+        background-size:300px 300px;
+    }
+    .btn-round{width:325px; top:74px;}
+    .btn_pubtxt{font-size:20px;}
+    span.header_txt{display:inline; margin:0;}
+    .optium-text-center{text-align:left;}
+    .img-gal{width:180px;}
+}
+
+

@@ -1,0 +1,188 @@
+<!doctype html>
+<!--[if lt IE 9]> <html class="no-js lt-ie9" lang="en" ng-app="barkade"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"  ng-app="myApp" ng-controller="DashboardController as db">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>My Testings...</title>
+    <meta name="description" content="Yet another amazing AngularJS app">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- CSS FILES -->
+    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/themes/{{db.theme||'simplex'}}/bootstrap.css" />-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+     <link rel="stylesheet" type="text/css" href="libs/ng-grid/ng-grid.css" />
+    <link rel="stylesheet" href="css/imagelibrary.css" />
+    <link rel="stylesheet" href="libs/jquery-datatables/media/css/jquery.datatables.min.css" />
+    <link rel="stylesheet" href="libs/jquery-datatables/media/css/TableTools.css" />
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css" />
+
+    
+    <!-- JQuery && Bootstrap -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+ 
+    <!-- Angular Related... -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+  
+    <!-- Library Files -->
+    <script src="libs/block-ui/jquery.blockUI.js"></script>
+    <script src="libs/ng-grid/ng-grid-2.0.11.min.js"></script>
+    <script src="libs/fusioncharts/FusionCharts.js"></script>
+    <script src="libs/fusioncharts/angular-fusioncharts.js"></script>
+    <script src="libs/fusioncharts/chartFactory.js"></script>
+    <script src="libs/jquery-datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="libs/jquery-datatables/media/js/jquery.dataTables.tableTools.min.js"></script>
+  
+    <!-- All Modlue File Includes.. -->
+    <script src="client-apps/css/css.mdl.js"></script>
+    <script src="client-apps/dashboard/dashboard.mdl.js"></script>
+    <script src="client-apps/dinesh/dinesh.mdl.js"></script>
+    <script src="client-apps/html/html.mdl.js"></script>
+    <script src="client-apps/vadlamani/vadlamani.mdl.js"></script>
+    <script src="client-apps/vadlamani/vadlamani-ptif.srv.js"></script>
+    <script src="client-apps/dashboard/dashboard.ctrl.js"></script>
+    <script src="client-apps/dinesh/dinesh.ctrl.js"></script>
+    <script src="client-apps/tools/tools-mdl.js"></script>
+    <script src="client-apps/vadlamani/vadlamani-ptif-listing-grid.ctrl.js"></script>
+    <script src="client-apps/vadlamani/vadlamani-ptif-listing.ctrl.js"></script>
+    <script src="client-apps/vadlamani/vadlamani-ptif-listing.fltr.js"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <div role="navigation" class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button><a href="/" class="navbar-brand">MyWork:</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">Dinesh<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" href="#/dinesh-1b" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">1b-page</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/dinesh-3a" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">3a-page</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/dinesh-3b" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">3b-page</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/dinesh-3p" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">3p-page</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/dinesh-jqtables" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">JQ Table</a></li>
+                    </ul>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">Vijay<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" href="#/vadlamani-ptif-login" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">ptif-login</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/vadlamani-ptif-listing" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">ptif-listing</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/vadlamani-ptif-listing-grid" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">ptif-listing-grid</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/vadlamani-ptif-listing-services" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">ptif-listing-services</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/vadlamani-ptif-listing-services/:id" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">ptif-listing-services-id</a></li>
+                    </ul>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">Rahul<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" href="#/dinesh-1b" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">1b-page</a></li>
+                    </ul>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <!-- CQ -->
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">CQ<b class="caret"></b></a>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <!-- HTML -->
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">HTML<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" href="#/http-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Http Basics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/html-fundamentals" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Html Fundamentals</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/html-structure-semantics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Html structre & Semantics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/html-forms" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Html Forms</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/html-audio-video" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Html Audio & Video</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/html-create-email" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Html Create Email</a></li>
+
+                    </ul>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <!-- CSS -->
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">CSS<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" href="#/css-fundamentals" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Css Fundamentals</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/css-typography" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Css Typography</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/css-boxmodel" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Css BoxModel</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/css-layouts" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Css Layouts</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/css-responsivewebdesign" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Csss Responsive Web Design</a></li>
+                    </ul>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <!-- Javascript  -->
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">JavaScript<b class="caret"></b></a></li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <!-- Angular  -->
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">Angular<b class="caret"></b></a></li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+            <!--  Tools ( grunt, gulp, npm, git .... )-->
+            <ul class="nav navbar-nav">  
+                <li class="dropdown"><a href="#" role="button" data-toggle="dropdown" class="dropdown-toggle">Tools<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" href="#/tools-bower-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">Bower-basics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/tools-github-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">github-basics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/tools-grunt-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">grunt-basics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/tools-gulp-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">gulp-basics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/tools-npm-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">npm-basics</a></li>
+                    <li role="presentation"><a role="menuitem" href="#/tools-yeoman-basics" tabindex="-1" data-toggle="collapse" data-target=".navbar-ex1-collapse">yeoman-basics</a></li>
+                  </ul>
+                </li>
+                <div data-toggle="collapse" data-target=".navbar-ex1-collapse" class="uparrow-placeholder"><span class="caret-uparrow"></span>
+                </div>
+            </ul>
+        </div>
+        
+    </div>
+    <br/>
+    <br/>
+    <br/>
+        <div ng-view></div>
+    <br/>
+    <br/>
+    <div id="footer">
+    </div>
+  
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "Result": "OK",
+  "Records": [
+    {
+      "treatmentId": 5756537,
+      "mrn": "4473",
+      "fName": "LastName4473, FirstName4473 A",
+      "cName": "6093-PERF_6093",
+      "shiftNumber": 1,
+      "shiftStatus": "OPEN",
+      "tFluids": 108,
+      "sDate": "/Date(1402459200000)/"
+    },
+    {
+      "treatmentId": 5756477,
+      "mrn": "4372",
+      "fName": "LastName4372, FirstName4372 A",
+      "cName": "6086-PERF_6086",
+      "shiftNumber": 1,
+      "shiftStatus": "OPEN",
+      "tFluids": 108,
+      "sDate": "/Date(1402459200000)/"
+    },
+    {
+      "treatmentId": 5756555,
+      "mrn": "4525",
+      "fName": "LastName4525, FirstName4525 A",
+      "cName": "6096-PERF_6096",
+      "shiftNumber": 1,
+      "shiftStatus": "OPEN",
+      "tFluids": 108,
+      "sDate": "/Date(1402459200000)/"
+    },
+    {
+      "treatmentId": 5756528,
+      "mrn": "4438",
+      "fName": "LastName4438, FirstName4438 A",
+      "cName": "6090-PERF_6090",
+      "shiftNumber": 1,
+      "shiftStatus": "OPEN",
+      "tFluids": 108,
+      "sDate": "/Date(1402459200000)/"
+    },
+    {
+      "treatmentId": 5756452,
+      "mrn": "4332",
+      "fName": "LastName4332, FirstName4332 A",
+      "cName": "6083-PERF_6083",
+      "shiftNumber": 1,
+      "shiftStatus": "OPEN",
+      "tFluids": 108,
+      "sDate": "/Date(1402459200000)/"
+    }
+  ],
+  "TotalRecordCount": 615,
+  "dbStatistics": {
+    "mrn": 5,
+    "clinicFullName": 5,
+    "shifts": 1,
+    "physicianAttending": 1,
+    "physicianOrderedBy": 1,
+    "treatments": 5
+  }
+}

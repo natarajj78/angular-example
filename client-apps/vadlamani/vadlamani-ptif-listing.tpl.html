@@ -1,0 +1,160 @@
+<!--  Listing -->
+<div class="col-sm-12    col-md-12" ng-controller="PtiflistController">
+    <div class="panel panel-default">
+        <div class="panel-heading">Search Data</div>
+        <div class="panel-body">
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="name">Name</label>
+                    <input type="text" class="form-control" id="name"  ng-model="filterOptions.name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="mrn">MRN</label>
+                    <input type="text" class="form-control" id="mrn"  ng-model="filterOptions.mrn" name="mrn"  placeholder="MRN">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="clinic">Clinic</label>
+                    <input type="text" class="form-control" id="clinic"  ng-model="filterOptions.clinic" name="clinic" placeholder="Clinic">
+                </div>
+                <!-- Dropdown-->
+                <div class="form-group dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Any time</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past hour</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past 24 hours</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past week</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past 2 week</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past 4 week</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past 180 days</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past year</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Past 2 years</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Custom range</a></li>
+                    </ul>
+                </div><!-- Drop Down -->
+                <div class="form-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" ng-click="clearTxt()">Clear</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" ng-click="search()">Search</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">+Show/Hide-Stats</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">+Clear-Print</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">+Print-</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Patient Information Treatment Sheet <p style='float:right;'>+Show/Hide-Stats &nbsp;&nbsp; +Clear-Print &nbsp;&nbsp; +Print- </p> </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table id="example1" class="display table table-striped">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>MRN<button type="button" class="btn btn-default btn-xs"    ng-click="orderStr='treatmentId'; reverse=false"><span class="glyphicon glyphicon-sort-by-order"></span></button> 
+                                     <button type="button" class="btn btn-default btn-xs"  ng-click="orderStr='-treatmentId'; reverse=false"><span class="glyphicon glyphicon-sort-by-order-alt"></span></button></th>
+                            <th>Name <button type="button" class="btn btn-default btn-xs"  ng-click="orderStr='fName'; reverse=false"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button> 
+                                     <button type="button" class="btn btn-default btn-xs"  ng-click="orderStr='-fName'; reverse=false"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></button></th>
+                            <th>Clinic ID</th>
+                            <th>Shift Number</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pi in ptif.Records | filter:searchTxt |  orderBy:orderStr:reverse |  startFrom:currentPage*pageSize  |limitTo:pageSize">
+                            <td><input type="checkbox"></td>
+                            <td><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-user"></span></button></td>
+                            <td><button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target=".bs-edit-modal-lg"><span class="glyphicon glyphicon-edit"></span></button></td>
+                            <td class="details-control"><button type="button" class="btn btn-default btn-xs" ng-click="listData(this);"><span class="glyphicon glyphicon-th-list "></span></button></td>
+                            <td>{{pi.treatmentId}}</td>
+                            <td>{{pi.fName}}</td>
+                            <td>{{pi.cName}}</td>
+                            <td>{{pi.shiftNumber}}</td>
+                            <td>{{pi.sDate}}</td>
+                        </tr> <tr><td colspan="9"><helloapp></helloapp></td></tr>
+                    </tbody>
+                </table> 
+            </div>
+
+            <ul class="pager"><li>Showing {{currentPage+1}} of {{nopages}}</li></ul>
+            <ul class="pager">
+                <li class="previous" ><a href="#/vadlamani-ptif-listing" ng-disabled="currentPage==0" ng-click="currentPage=currentPage-1">&larr; Previous</a></li>
+                <li class="next" ><a href="#/vadlamani-ptif-listing" ng-disabled="currentPage >= ptif.length/pageSize - 1" ng-click="currentPage=currentPage+1">Next &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--  Click of UserIcon-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- Click of Edit Icon -->
+<div class="modal fade bs-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Patinet Information Treatment Sheet</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                <div class="panel-heading">Patinet Information Treatment Sheet</div>
+                <div class="panel-body">
+                    <form role="form" >
+                        <div class="form-group">
+                            <label for="id">ID</label>
+                            <input type="text" class="form-control" id="id" placeholder="EnterId">
+                        </div>
+                        <div class="form-group">
+                            <label for="version">Version</label>
+                            <input type="text" class="form-control" id="version" placeholder="Enter Version">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- Listing -->
+
+
+
+
+
+<!-- Table for expansion -->
+<!--  -->

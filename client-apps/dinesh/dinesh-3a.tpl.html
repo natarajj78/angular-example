@@ -1,0 +1,70 @@
+<!-- Markup -->
+<div class="container">
+    <!-- Header Section -->
+    <div class="page-header">
+        <h1 class="text-left"><span class="imglibbackbtn">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="header_txt">Image Library</span></h1>
+    </div> <!--END: Header Section -->
+    <!-- ROW Starts HERE.. -->
+    <div class="row">   
+        <div class="col-md-12">
+            <!-- TOP Text-->
+            <p class="text-center"> Tap image thumbnail to view full image. Select image(s) to attach to records or add to folders</p>
+            <!-- END: TOP Text -->
+            </br></br>
+            <!-- Middle Image -->
+            <div class="addimages text-center" id="addImage" >
+
+                <input type="file" class="uploadFile inputfile_3a" value="upload" onchange="makeAjax();" accept="'image/*'"/>
+                <a class="btn btn-lg btn-success btn-round" href="javascript:void(0)" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;&nbsp;Add Image(s)</a>
+            </div>
+            <!-- END: Middle Image -->
+            </br></br></br></br></br  class="hidden-md hidden-lg"></br  class="hidden-md hidden-lg">
+            <!--BOTTOM Text   -->
+            <p class="text-center">There are no images in the Image library.  Tap the <b>Add Images</b> button to upload images to the image library. There are no images in the Image library. </p>
+            <!-- END:Bottom Text -->
+        </div>    
+    </div><!-- END: ROW -->    
+</div><!--END: container -->
+
+<!-- Success Box -->
+<div class="alert alert-success alert-dismissable" id="successBox" style="top:-550px">
+   <button type="button" class="close" data-dismiss="alert" 
+      aria-hidden="true">
+      &times;
+   </button>
+   Success! It's submitted.
+</div>
+
+<!-- ERROR Box -->
+<!--<div class="alert alert-danger alert-dismissable errorBox" id="errorBox" style="top:-250px">
+    <div class="header">
+        Error<button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times; </button> 
+    </div>
+    <div class="body">
+        <div class="modalText">Service Failure</div>
+        <div class="modalBody">There was an issue sending your payment. Please resubmit your payment or try again at a later time.</div>
+    </div>
+    <button type="button" class="btn  button">Re submit your payment</button>
+</div>-->
+
+<!-- Modal -->
+<div class="modal fade errorBox" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Service Failure</h4>
+      </div>
+      <div class="modal-body">
+        <div class="modalText">Service Failure</div>
+        <p>
+          There was an issue sending your payment. Please resubmit your payment or try again at a later time.  
+        </p>    
+        <button type="button" class="btn  button opt_btn">Re submit your payment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- END: Markup -->

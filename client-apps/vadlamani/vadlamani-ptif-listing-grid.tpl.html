@@ -1,0 +1,260 @@
+<!--  Listing -->
+<div class=" col-md-12"  ng-controller="PtiflistgridController"> 
+    <a href="/Project_Personal/ptif/#/listing_grid#test">testGraph</a>
+    <div class="panel panel-default">
+        <div class="panel-heading">Search Data</div>
+        <div class="panel-body">
+            <form class="form-inline" role="form">
+            <div class="form-group">
+                <label class="sr-only" for="name">Name</label>
+                <input type="text" class="form-control" id="name"  ng-model="filterOptions.name" name="name" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="mrn">MRN</label>
+                <input type="text" class="form-control" id="mrn"  ng-model="filterOptions.mrn" name="mrn"  placeholder="MRN">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="clinic">Clinic</label>
+                <input type="text" class="form-control" id="clinic"  ng-model="filterOptions.clinic" name="clinic" placeholder="Clinic">
+                <input type="hidden" name="a" id="a" ng-model="filterOptions.dateStart">  
+                <input type="hidden" name="b" id="b" ng-model="filterOptions.dateEnd">    
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="clinic">AnyTime</label>
+                <span class="time"></span><span >{{time}}</span>
+            </div>
+            <!-- Dropdown-->
+            <div class="form-group dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Any time';   ">Any time</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past hour';">Past hour</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past 24 hours';">Past 24 hours</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past week'; ">Past week</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past 2 week';">Past 2 week</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past 4 week';">Past 4 week</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past 180 days';">Past 180 days</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past year'; ">Past year</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="time='Past 2 years';">Past 2 years</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem"   data-toggle="modal" data-target="#dialog" tabindex="-1" href="">Custom range</a></li>
+                </ul>
+            </div><!-- Drop Down -->
+            <!-- Added on 31/07/2014 -->
+            <div class="form-group">
+                <label class="sr-only" for="clinic">Select</label>
+                <span class="time"></span><span >Select</span>
+            </div>
+            <!-- Dropdown-->
+            <div class="form-group dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" data-toggle="modal" data-target="#showPrinters">Show Printers Grid</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" >Hello</a></li>
+                  </ul>
+            </div><!-- Drop Down --> <!-- ADDED on 31/07/2014 -->
+
+
+            <div class="form-group">
+                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" ng-click="clearTxt()">Clear</button>
+            </div>        
+            <div class="form-group">
+                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" ng-click="search()">Search</button>
+            </div>
+            <div class="form-group">
+                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">+Show/Hide-Stats</button> 
+            </div>
+            <div class="form-group">
+                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">+Clear-Print</button> 
+            </div>
+            <div class="form-group">
+                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">+Print-</button> 
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">Patient Information Treatment Sheet  </div>
+        <div class="panel-body">
+            <div class="table-responsive gridStyle" ng-grid="grid.options"></div>
+          <div class="details-table" ng-show="showHideChildDetails();" ng-mouseenter="isDetailDisplayed=true;" ng-mouseleave="isDetailDisplayed=false;" ng-style="{ 'top': TableStyle.top+'px' }">
+            <div class="table-responsive gridExt" ng-grid="grid.optionsExt"></div>
+        </div>
+    </div>
+    <!--  Included one -->
+   <!--  --> 
+    <!-- Start : Date Picker Dialog -->
+    <div class="modal fade bs-example-modal-lg" id="dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Custom Date Ranges</h4>
+            </div>
+            <div class="modal-body">
+                <p>Start Date : <input type="text" name="startDate" id="startDate" ng-modal="filterOptions.dateStart"/></p>
+                <p>End Date   : <input type="text" name="endDate" id="endDate"  ng-modal="filterOptions.dateEnd"/></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+    </div> <!-- Date Picker Dialog -->
+</div>
+
+
+<!--  Click of UserIcon-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Click of Edit Icon -->
+<div class="modal fade bs-edit-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Patinet Information Treatment Sheet</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Patinet Information Treatment Sheet</div>
+                    <div class="panel-body">
+                        <form role="form" >
+                            <div class="form-group">
+                                <label for="id">ID</label>
+                                <input type="text" class="form-control" id="id" placeholder="EnterId">
+                            </div>
+                            <div class="form-group">
+                                <label for="version">Version</label>
+                                <input type="text" class="form-control" id="version" placeholder="Enter Version">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Listing -->
+
+<div class="selectedItems12" >
+    You have selected:<br/><br/>
+    <div ng-repeat="detail in details">
+        TreatmentId: {{ detail.treatmentId }}<br/>
+        MRN: {{ detail.mrn }}
+    </div>
+</div> 
+<div class="modal fade bs-example-modal-lg" id="dialoggrid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Lising Info:</h4>
+        </div>
+        <div class="modal-body">
+            
+<div class="selectedItems12" >
+    You have selected:<br/><br/>
+    <div ng-repeat="detail in details">
+        TreatmentId: {{ detail.treatmentId }}<br/>
+        MRN: {{ detail.mrn }}
+    </div>
+</div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div> <!-- Date Picker Dialog -->
+
+
+
+<!-- Modal  Added on 31/07/2014--><!--
+<div class="modal fade" id="showPrinters" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body" ng-controller="printCtrl">
+        <div class="gridPrintStyle" ng-grid="gridPrinters" style="width:400px;height:300px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> --><!--  END : added on 31/07/2014 -->
+
+</div>  <!--END: col-md-12 of main -->
+
+<!-- Graph row-->
+<div class="col-md-12" ><a id="test">graph</a>
+     <div  fc-chart fc-chart-type="MSCombi3D" fc-data-url="data/myData1.json" height="450"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+// $('#startDate').datepicker();
+// $('#endDate').datepicker();
+// $('#dialog').on('hidden.bs.modal', function (e) {
+   // jQuery("#a").val( $("#startDate").val() );
+   // jQuery("#b").val( $("#endDate").val() );
+   // $(".time").text(  $("#startDate").val() +  "-" + $("#endDate").val() );
+// })
+</script>
+<style type="text/css">
+    .details-table {
+        display: block;
+        position: absolute;
+        width: 250px;
+        height: auto;
+        left: 105px;
+        top: -10px;
+        z-index: 1;
+    }
+</style>
+

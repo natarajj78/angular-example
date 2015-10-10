@@ -1,0 +1,39 @@
+{
+    "eobRecreateResponse": {
+        "recreateVOList": [{
+            "contractNbr": "1234567",
+            "planBenefitPackage": "54",
+            "masterGroupNumber": "",
+            "memberMedicalId": "",
+            "reportingPeriodEndDate": "12/12/2015",
+            "sbscrReleaseId": "123456",
+            "subscriberName": "NOT AVAILABLE",
+            "memberMedicalSourceSystem": "COSMOS",
+            "groupNumber": "54",
+            "planContractYear": "2014",
+            "EOBReleaseDate": "02/16/2015",
+            "EligibilitySource": "99999",
+            "SubscriberDOB": "02/09/2015",
+            "claimIndicator": "Y",
+            "recreateIndicator": "Y",
+            "subscriberHolds": "4"
+        }, {
+            "contractNbr": "1234567",
+            "planBenefitPackage": "54",
+            "masterGroupNumber": "22",
+            "memberMedicalId": "55555",
+            "reportingPeriodEndDate": "12/12/2015",
+            "sbscrReleaseId": "1234567",
+            "subscriberName": "NOT AVAILABLE",
+            "memberMedicalSourceSystem": "UNKNOWN",
+            "groupNumber": "54",
+            "planContractYear": "2014",
+            "EOBReleaseDate": "02/16/2015",
+            "EligibilitySource": "99999",
+            "SubscriberDOB": "02/09/2015",
+            "claimIndicator": "Y",
+            "recreateIndicator": "Y",
+            "subscriberHolds": "5"
+        }]
+    }
+}

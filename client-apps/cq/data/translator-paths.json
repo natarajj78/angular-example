@@ -1,0 +1,47 @@
+{
+  "total": 14,
+  "paths": [
+    {
+      "path": "/apps/cdc/i18n/wcm/damadvsearch"
+    },
+    {
+      "path": "/libs/cq/searchpromote/components/pagination/i18n"
+    },
+    {
+      "path": "/libs/foundation/components/search/i18n"
+    },
+    {
+      "path": "/libs/crx/core/i18n"
+    },
+    {
+      "path": "/libs/foundation/components/mobilefooter/i18n"
+    },
+    {
+      "path": "/apps/cdc/i18n/wcm/renditiondashboard"
+    },
+    {
+      "path": "/apps/cdc/responsive/components/page/generic/i18n"
+    },
+    {
+      "path": "/libs/crx/de/i18n"
+    },
+    {
+      "path": "/apps/cdc/i18n/wcm/prophelpmessages"
+    },
+    {
+      "path": "/apps/cdc/i18n/wcm/handlers"
+    },
+    {
+      "path": "/apps/cdc/i18n/wcm/siteadvsearch"
+    },
+    {
+      "path": "/apps/cdc/i18n/framework"
+    },
+    {
+      "path": "/libs/wcm/core/i18n"
+    },
+    {
+      "path": "/apps/cdc/i18n/wcm/workflowdashboard"
+    }
+  ]
+}
